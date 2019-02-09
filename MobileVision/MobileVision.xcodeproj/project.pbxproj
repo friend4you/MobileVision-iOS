@@ -54,14 +54,46 @@
 		283A79B2220F1A54008EAAE2 /* MobileVision */ = {
 			isa = PBXGroup;
 			children = (
-				283A79B3220F1A54008EAAE2 /* AppDelegate.swift */,
-				283A79B5220F1A54008EAAE2 /* MainViewController.swift */,
-				283A79B7220F1A54008EAAE2 /* Main.storyboard */,
-				283A79BA220F1A56008EAAE2 /* Assets.xcassets */,
-				283A79BC220F1A56008EAAE2 /* LaunchScreen.storyboard */,
-				283A79BF220F1A56008EAAE2 /* Info.plist */,
+				283A79C8220F2937008EAAE2 /* ViewControllers */,
+				283A79C7220F2921008EAAE2 /* Application */,
+				283A79C6220F2909008EAAE2 /* Resources */,
+				283A79C5220F28EF008EAAE2 /* Storyboards */,
 			);
 			path = MobileVision;
+			sourceTree = "<group>";
+		};
+		283A79C5220F28EF008EAAE2 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				283A79B7220F1A54008EAAE2 /* Main.storyboard */,
+				283A79BC220F1A56008EAAE2 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		283A79C6220F2909008EAAE2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				283A79BA220F1A56008EAAE2 /* Assets.xcassets */,
+				283A79BF220F1A56008EAAE2 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		283A79C7220F2921008EAAE2 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				283A79B3220F1A54008EAAE2 /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		283A79C8220F2937008EAAE2 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				283A79B5220F1A54008EAAE2 /* MainViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,7 +316,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P5NU32N5RN;
-				INFOPLIST_FILE = MobileVision/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/MobileVision/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -303,7 +335,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P5NU32N5RN;
-				INFOPLIST_FILE = MobileVision/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/MobileVision/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
