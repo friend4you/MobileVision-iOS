@@ -13,22 +13,7 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var previewAreaView: UIView!
     
-    private lazy var session: AVCaptureSession = {
-        let session = AVCaptureSession()
-        session.sessionPreset = .high
-        guard let captureDevice = captureDevice,
-            let input = try? AVCaptureDeviceInput(device: captureDevice),
-            session.canAddInput(input) else {
-            return session
-        }
-        
-        session.addInput(input)
-        
-        if session.canAddOutput(photoCaptureOutput) {
-            session.addOutput(photoCaptureOutput)
-        }
-        return session
-    }()
+    private var session: AVCaptureSession = AVCaptureSession()
     
     private lazy var captureDevice: AVCaptureDevice? = {
         return AVCaptureDevice.default(for: .video)
@@ -40,7 +25,7 @@ class MainViewController: UIViewController {
     
     private lazy var videoPreviewLayer: AVCaptureVideoPreviewLayer = {
         let videoPreviewLayer = AVCaptureVideoPreviewLayer(session: session)
-        videoPreviewLayer.videoGravity = .resizeAspect
+        videoPreviewLayer.videoGravity = .resizeAspectFill
         videoPreviewLayer.connection?.videoOrientation = .portrait
         return videoPreviewLayer
     }()
@@ -49,6 +34,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureDependencies()
         configureUI()
     }
     
@@ -63,6 +49,11 @@ class MainViewController: UIViewController {
     
     // MARK: - Private
     
+    private func configureDependencies() {
+        setupSession()
+        DetectionController.shared.delegate = self
+    }
+    
     private func configureUI() {
         configureCaptureUI()
     }
@@ -71,5 +62,39 @@ class MainViewController: UIViewController {
         previewAreaView.layer.addSublayer(videoPreviewLayer)
         session.startRunning()
     }
+    
+    private func setupSession() {
+        session.sessionPreset = .high
+        guard let captureDevice = captureDevice,
+            let input = try? AVCaptureDeviceInput(device: captureDevice),
+            session.canAddInput(input) else {
+                return
+        }
+        
+        session.addInput(input)
+        
+        if session.canAddOutput(photoCaptureOutput) {
+            session.addOutput(photoCaptureOutput)
+        }
+    }
 }
 
+extension MainViewController: DetectionControllerDelegate {
+    func detectFaces(with detector: CIDetector) {
+        print(detector)
+    }
+    
+    func detectText(with detector: CIDetector) {
+        print(detector)
+    }
+    
+    func detectQrCode(with detector: CIDetector) {
+        print(detector)
+    }
+    
+    func detectRecatangle(with detector: CIDetector) {
+        print(detector)
+    }
+    
+    
+}
