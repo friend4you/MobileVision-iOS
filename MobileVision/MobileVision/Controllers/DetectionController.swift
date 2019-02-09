@@ -10,6 +10,8 @@ import Foundation
 import CoreImage
 
 protocol DetectionControllerDelegate: class {
+    var currentFeatureDetector: CIDetector? { get set }
+
     func detectFaces(with detector: CIDetector)
     func detectText(with detector: CIDetector)
     func detectQrCode(with detector: CIDetector)
